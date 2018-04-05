@@ -19,33 +19,15 @@ $offset_sm_one_side = ($offset_sm / 2)
 $offset_xs_one_side = ($offset_xs / 2)
 
 $fields = 30px
-$fields_lg = 20px
-$fields_md = 20px
-$fields_sm = 10px
-$fields_xs = 10px
+$fields_md = 15px
 
 wrapper-full()
     padding-left $fields
     padding-right $fields
 
-    lg-block(@block{
-        padding-left $fields_lg
-        padding-right $fields_lg
-    })
-
     md-block(@block{
         padding-left $fields_md
         padding-right $fields_md
-    })
-
-    sm-block(@block{
-        padding-left $fields_sm
-        padding-right $fields_sm
-    })
-
-    xs-block(@block{
-        padding-left $fields_xs
-        padding-right $fields_xs
     })
 
 row-offsets()

@@ -6,19 +6,16 @@ const settings = {
 	breakPoints: {
         lg: {
             width: "1200px",
-            fields: "20px"
         },
         md: {
             width: "992px",
-            fields: "20px"
+            fields: "15px"
         },
         sm: {
             width: "720px",
-            fields: "10px"
         },
         xs: {
             width: "576px",
-            fields: "10px"
         }
     },
     container: {

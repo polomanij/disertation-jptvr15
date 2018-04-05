@@ -29,6 +29,8 @@ public class User implements Serializable {
     private String login;
     @Column(unique = true)
     private String email;
+    private String password;
+    private String salts;
 
     public User(String name, String surname, String login, String email) {
         this.name = name;
