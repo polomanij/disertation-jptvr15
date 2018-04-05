@@ -1,0 +1,25 @@
+extends includes/main
+block title
+	title signin
+block content
+	section.signup
+		.wrapper
+			.sign-form-row
+				form.sign-form.blue-grey.lighten-5
+					.input-field
+						input#login.validate(type="text" placeholder="login" name="login")
+						label(for="login") Login
+					.input-field
+						input#name.validate(type="text" placeholder="name" name="name")
+						label(for="name") Name
+					.input-field
+						input#surname.validate(type="text" placeholder="surname" name="surname")
+						label(for="surname") Surname
+					.input-field
+						input#email.validate(type="email" placeholder="email" name="email")
+						label(for="email") Email
+					.input-field
+						input#password.validate(type="password" placeholder="password" name="password")
+						label(for="password") Password
+					.input-field
+						button.btn.waves-effect(type="submit") Signup

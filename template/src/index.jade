@@ -1,0 +1,16 @@
+extends includes/main
+block title
+	title signin
+block content
+	section.signin
+		.wrapper
+			.sign-form-row
+				form.sign-form.blue-grey.lighten-5
+					.input-field
+						input#login.validate(type="text" placeholder="login" name="login")
+						label(for="login") Login
+					.input-field
+						input#password.validate(type="password" placeholder="password" name="password")
+						label(for="password") Password
+					.input-field
+						button.btn.waves-effect(type="submit") Signin
