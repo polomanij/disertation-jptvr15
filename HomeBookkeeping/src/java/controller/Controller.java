@@ -42,10 +42,8 @@ public class Controller extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         //Getting command string
         String command = request.getParameter("command").toLowerCase();
-        response.getWriter().write(command);
         //Getting action class by command string
         //Executing action
-        //
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
