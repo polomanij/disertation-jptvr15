@@ -38,7 +38,7 @@
   <section class="signup">
     <div class="wrapper">
       <div class="sign-form-row">
-          <form class="sign-form blue-grey lighten-5" action="controller?command=registration" method="post">
+          <form class="sign-form blue-grey lighten-5" action="controller?action=registration" method="post">
           <div class="input-field">
             <input id="login" type="text" placeholder="login" name="login" class="validate"/>
             <label for="login">Login</label>

@@ -32,11 +32,13 @@ public class User implements Serializable {
     private String password;
     private String salts;
 
-    public User(String name, String surname, String login, String email) {
+    public User(String name, String surname, String login, String email, String password, String salts) {
         this.name = name;
         this.surname = surname;
         this.login = login;
         this.email = email;
+        this.password = password;
+        this.salts = salts;
     }
     
     public User() {
@@ -80,6 +82,22 @@ public class User implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getSalts() {
+        return salts;
+    }
+
+    public void setSalts(String salts) {
+        this.salts = salts;
     }
 
     @Override

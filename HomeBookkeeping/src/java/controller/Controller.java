@@ -5,8 +5,10 @@
  */
 package controller;
 
+import action.ActionInterface;
 import entity.Role;
 import entity.User;
+import factory.ActionFactory;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
@@ -41,9 +43,15 @@ public class Controller extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         //Getting command string
-        String command = request.getParameter("command").toLowerCase();
-        //Getting action class by command string
+        String actionName = request.getParameter("action");
+        //Getting action class
+        ActionInterface action = ActionFactory.getAction(actionName);
         //Executing action
+        //@var page - url string 
+        String page = action.execute(request);
+        
+        //redirect
+        request.getRequestDispatcher(page).forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
