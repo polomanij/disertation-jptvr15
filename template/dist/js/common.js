@@ -1,1 +1,1 @@
-var elem=document.querySelector(".sidenav"),instance=M.Sidenav.init(elem);
+$(document).ready(function(){$(".sidenav").length&&$(".sidenav").sidenav(),$("#category-select").formSelect()});

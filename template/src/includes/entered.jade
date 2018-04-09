@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	block title
+	block link
+	//Import Google Icon Font
+	link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
+	//Import materialize.css
+	link(rel="stylesheet", href="libs/materialize/css/materialize.min.css")
+	//my styles
+	link(rel="stylesheet", href="css/style.css")
+
+	meta(name="viewport" content="width=device-width, initial-scale=1.0")
+body.blue-grey.lighten-2
+	header.header
+		nav.teal
+			.wrapper
+				.nav-wrapper
+					a.brand-logo(href="#") Bookkeeping
+	block content
+	block scripts
+	script(src="libs/jquery.min.js")
+	script(src="libs/materialize/js/materialize.min.js")
+	script(src="js/common.js")

@@ -1,2 +1,7 @@
-var elem = document.querySelector('.sidenav');
-var instance = M.Sidenav.init(elem);
+$(document).ready(function() {
+	//enable navbar toggle menu
+	if ( $('.sidenav').length ) {
+		$('.sidenav').sidenav();
+	}
+	$('#category-select').formSelect();
+})

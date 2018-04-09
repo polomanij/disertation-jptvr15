@@ -15,7 +15,7 @@ head
 body.blue-grey.lighten-2
 	header.header
 		nav.teal
-			.container
+			.wrapper
 				.nav-wrapper
 					a.brand-logo(href="#") Bookkeeping
 					a.sidenav-trigger(href="#" data-target="mobile-demo")
@@ -32,5 +32,6 @@ body.blue-grey.lighten-2
 				a(href="signup.html") Signup
 	block content
 	block scripts
+	script(src="libs/jquery.min.js")
 	script(src="libs/materialize/js/materialize.min.js")
 	script(src="js/common.js")

@@ -14,7 +14,7 @@
 <body class="blue-grey lighten-2">
   <header class="header">
     <nav class="teal">
-      <div class="container">
+      <div class="wrapper">
         <div class="nav-wrapper"><a href="#" class="brand-logo">Bookkeeping</a><a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
             <li><a href="index.html">Signin</a></li>
@@ -31,6 +31,9 @@
   <section class="signin">
     <div class="wrapper">
       <div class="sign-form-row">
+        <div class="site-desc">
+          <p class="flow-text">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. По всей текста проектах сих что запятой напоивший дорогу свой себя гор страна, приставка заманивший строчка решила деревни не повстречался заголовок, подзаголовок наш коварный языком маленький, речью даль за рекламных всемогущая?</p>
+        </div>
         <form class="sign-form blue-grey lighten-5">
           <div class="input-field">
             <input id="login" type="text" placeholder="login" name="login" class="validate"/>
@@ -41,12 +44,13 @@
             <label for="password">Password</label>
           </div>
           <div class="input-field">
-            <button type="submit" class="btn waves-effect">Signin</button>
+            <button type="submit" class="btn waves-effect">Signin</button><span class="signin-notacc flow-text">If you have not account click <a href="signup.html">here</a></span>
           </div>
         </form>
       </div>
     </div>
   </section>
+  <script src="libs/jquery.min.js"></script>
   <script src="libs/materialize/js/materialize.min.js"></script>
   <script src="js/common.js"></script>
 </body>
