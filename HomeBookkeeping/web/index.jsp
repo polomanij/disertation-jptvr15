@@ -19,22 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body class="blue-grey lighten-2">
-  <header class="header">
-    <nav class="teal">
-      <div class="container">
-        <div class="nav-wrapper"><a href="#" class="brand-logo">Bookkeeping</a><a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="index.jsp">Signin</a></li>
-            <li><a href="signup.jsp">Signup</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <ul id="mobile-demo" class="sidenav">
-      <li><a href="index.html">Signin</a></li>
-      <li><a href="signup.html">Signup</a></li>
-    </ul>
-  </header>
+  <%@ include file="/WEB-INF/jspFiles/includes/header.jsp" %>
   <section class="signin">
     <div class="wrapper">
       <div class="sign-form-row">

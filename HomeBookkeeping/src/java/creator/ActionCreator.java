@@ -6,6 +6,7 @@
 package creator;
 
 import action.ActionInterface;
+import action.ActionLogin;
 import action.ActionRegistration;
 
 /**
@@ -13,7 +14,9 @@ import action.ActionRegistration;
  * @author roman
  */
 public enum ActionCreator {
-    REGISTRATION{{this.action = new ActionRegistration();}};
+    REGISTRATION{{this.action = new ActionRegistration();}},
+    LOGIN{{this.action = new ActionLogin();}};
+    
     ActionInterface action;
     
     public ActionInterface getAction() {

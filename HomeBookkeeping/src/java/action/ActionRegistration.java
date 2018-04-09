@@ -2,6 +2,7 @@ package action;
 
 import javax.servlet.http.HttpServletRequest;
 import action.ActionInterface;
+import entity.Role;
 import entity.User;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,16 +12,19 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import security.PasswordEncryption;
+import session.RoleFacade;
 import session.UserFacade;
 
 public class ActionRegistration implements ActionInterface {
     public UserFacade userFacade;
+    public RoleFacade roleFacade;
 
     public ActionRegistration() {
         try {
             Context context;
             context = new InitialContext();
             this.userFacade = (UserFacade) context.lookup("java:module/UserFacade");
+            this.roleFacade = (RoleFacade) context.lookup("java:module/RoleFacade");
         } catch (NamingException e) {
             Logger.getLogger(ActionRegistration.class.getName()).log(Level.SEVERE, "Не удалось нацти бин.", e);
         }
@@ -38,7 +42,8 @@ public class ActionRegistration implements ActionInterface {
         List<String> errorMessage = this.checkUserData(name, surname, login, email, password);
         
         if (!errorMessage.isEmpty()) {
-            //do something
+            request.setAttribute("errors", errorMessage);
+            return "/signup.jsp";
         }
 
         //get salts for password
@@ -50,8 +55,10 @@ public class ActionRegistration implements ActionInterface {
         
         //creating new user
         User user = new User(name, surname, login, email, password, salts);
-        
         userFacade.create(user);
+        
+        Role role = new Role("user", user);
+        roleFacade.create(role);
         //return result string
         return "/index.jsp";
     }
