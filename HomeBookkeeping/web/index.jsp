@@ -17,7 +17,7 @@
   <section class="signin">
     <div class="wrapper">
       <div class="sign-form-row">
-          <form class="sign-form blue-grey lighten-5" action="controller?command=signin">
+          <form class="sign-form blue-grey lighten-5" action="controller?action=login" method="post">
           <div class="input-field">
             <input id="login" type="text" placeholder="login" name="login" class="validate"/>
             <label for="login">Login</label>
