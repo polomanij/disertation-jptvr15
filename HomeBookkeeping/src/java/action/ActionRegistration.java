@@ -33,11 +33,11 @@ public class ActionRegistration implements ActionInterface {
     @Override
     public String execute(HttpServletRequest request) {
         //get user parameters
-        String name = request.getParameter("name");
-        String surname = request.getParameter("surname");
-        String login = request.getParameter("login");
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
+        String name = request.getParameter("name").trim();
+        String surname = request.getParameter("surname").trim();
+        String login = request.getParameter("login").trim();
+        String email = request.getParameter("email").trim();
+        String password = request.getParameter("password").trim();
         //check parameters
         List<String> errorMessage = this.checkUserData(name, surname, login, email, password);
         
@@ -66,19 +66,19 @@ public class ActionRegistration implements ActionInterface {
     private List checkUserData(String name, String surname, String login, String email, String password) {
         List<String> errorMessage = new ArrayList();
 
-        if (name == null) {
+        if (name == null | name.isEmpty()) {
            errorMessage.add("The name field must be filled");
         }
-        if (surname == null) {
+        if (surname == null | surname.isEmpty()) {
            errorMessage.add("The surname field must be filled");
         }
-        if (login == null) {
+        if (login == null | login.isEmpty()) {
            errorMessage.add("The login field must be filled");
         }
-        if (email == null) {
+        if (email == null | email.isEmpty()) {
            errorMessage.add("The email field must be filled");
         }
-        if (password == null) {
+        if (password == null | password.isEmpty()) {
            errorMessage.add("The password field must be filled");
         }
         

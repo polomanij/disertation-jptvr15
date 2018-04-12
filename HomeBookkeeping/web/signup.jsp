@@ -1,9 +1,3 @@
-<%-- 
-    Document   : signup
-    Created on : Apr 5, 2018, 2:38:17 PM
-    Author     : pupil
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en"></html>

@@ -1,9 +1,3 @@
-<%-- 
-    Document   : header
-    Created on : Apr 9, 2018, 9:21:23 AM
-    Author     : pupil
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <header class="header">
   <nav class="teal">

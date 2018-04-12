@@ -1,9 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : Apr 5, 2018, 1:09:32 PM
-    Author     : pupil
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en"></html>
