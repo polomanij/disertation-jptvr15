@@ -25,6 +25,7 @@ public class Category implements Serializable {
     private Long id;
     @Column(unique = true)
     private String name;
+    private User user;
 
     public Category(String name) {
         this.name = name;
@@ -33,20 +34,20 @@ public class Category implements Serializable {
     public Category() {
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

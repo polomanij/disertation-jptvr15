@@ -38,7 +38,6 @@
 		size(12)
 		text-align center
 		font-size 35px
-		color #004d40
 	h3
 		font-size 28px
 .data-common
@@ -46,7 +45,7 @@
 	justify-content center
 .data-common-item
 	col()
-	size(9)
+	size(12)
 	size-md(12)
 	margin 20px 0
 	text-align left
@@ -54,31 +53,46 @@
 		margin-bottom 15px
 .curr-credit
 	font-weight bold
+.add-money-val
+	display inline-block
+	max-width 100px
+	border-radius 5px
+	background #e0f2f1
+	input
+		max-height 35px
 .add-money
 	margin-left 10px
-.data-categories-row
-	row-flex()
-	md-block({
-		justify-content: center
-	})
-	justify-content left
 .data-categories
-	col()
-	size(12)
+	row-flex()
+	align-items center
 	margin-top 20px
+	text-align center
+.data-categories-item
+	col()
 .category-select
 	display inline-block
-	max-width 250px
 	background #e0f2f1
 	border-radius 5px
 .category-value
 	display inline-block
+	max-width 100px
+	border-radius 5px
+	background-color #e0f2f1
+	input
+		max-height 35px
+
+
 .actions
 	col()
 	size(4)
 	md-block({
 		display: none
 	})
-	height 500px
+	padding 10px
 	border-radius 10px
+	text-align center
 	background #e0f2f1
+.actions-list
+	margin-top 20px
+.actions-list-title
+	margin-bottom 15px

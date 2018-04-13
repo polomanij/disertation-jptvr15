@@ -6,10 +6,14 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -22,16 +26,37 @@ public class Expense implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @OneToOne
+    private Category category;
+    private int sum;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date date;
 
     public Expense() {
     }
 
-    public Long getId() {
-        return id;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public int getSum() {
+        return sum;
+    }
+
+    public void setSum(int sum) {
+        this.sum = sum;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     @Override

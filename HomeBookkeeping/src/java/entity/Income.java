@@ -40,12 +40,28 @@ public class Income implements Serializable {
     public Income() {
     }
 
-    public Long getId() {
-        return id;
+    public Long getSum() {
+        return sum;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setSum(Long sum) {
+        this.sum = sum;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

@@ -27,21 +27,31 @@
           <h2 class="flow-text">Your current data</h2>
           <div class="data-common">
             <div class="data-common-item">
-              <h3 class="flow-text">Credit:</h3><span class="curr-credit flow-text">150 euro</span><a href="#" class="btn add-money">Add</a>
+              <h3 class="flow-text">Credit:</h3><span class="curr-credit flow-text">150 euro</span>
+              <div class="add-money-val">
+                <input type="text"/>
+              </div><a href="#" class="btn add-money">Add</a>
             </div>
           </div>
           <h2 class="flow-text">Categories</h2>
           <div class="data-categories-row">
-            <div class="data-categories">
-              <select class="flow-text category-select">
-                <option selected="selected">Choose category</option>
-                <option value="1">option 1</option>
-                <option value="2">option 2</option>
-                <option value="3">option 3</option>
-                <option value="4">option 4</option>
-              </select>
-              <input type="number" class="category-value"/>
-            </div>
+            <form action="" method="get" class="data-categories">
+              <div class="data-categories-item">
+                <select class="flow-text category-select">
+                  <option selected="selected">Choose category</option>
+                  <option value="1">option 1</option>
+                  <option value="2">option 2</option>
+                  <option value="3">option 3</option>
+                  <option value="4">option 4</option>
+                </select>
+              </div>
+              <div class="data-categories-item category-value">
+                <input type="number"/>
+              </div>
+              <div class="data-categories-item data-categories-submit">
+                <input type="submit" value="Add" class="btn"/>
+              </div>
+            </form>
           </div>
         </section>
         <aside class="actions"></aside>

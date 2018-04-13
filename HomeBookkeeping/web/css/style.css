@@ -212,7 +212,7 @@ img {
   word-wrap: break-word;
   margin-left: 15px;
   margin-right: 15px;
-  width: calc(75% - 30px);
+  width: calc(100% - 30px);
   margin: 20px 0;
   text-align: left;
 }
@@ -227,40 +227,48 @@ img {
 .curr-credit {
   font-weight: bold;
 }
+.add-money-val {
+  display: inline-block;
+  max-width: 100px;
+  border-radius: 5px;
+  background: #e0f2f1;
+}
+.add-money-val input {
+  max-height: 35px;
+}
 .add-money {
   margin-left: 10px;
 }
-.data-categories-row {
+.data-categories {
   display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
   margin-left: -15px;
   margin-right: -15px;
-  -webkit-box-pack: left;
-  justify-content: left;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-top: 20px;
+  text-align: center;
 }
-@media screen and (max-width: 992px) {
-  .data-categories-row {
-    -webkit-box-pack: center;
-    justify-content: center;
-  }
-}
-.data-categories {
+.data-categories-item {
   box-sizing: border-box;
   word-wrap: break-word;
   margin-left: 15px;
   margin-right: 15px;
-  width: calc(100% - 30px);
-  margin-top: 20px;
 }
 .category-select {
   display: inline-block;
-  max-width: 250px;
   background: #e0f2f1;
   border-radius: 5px;
 }
 .category-value {
   display: inline-block;
+  max-width: 100px;
+  border-radius: 5px;
+  background-color: #e0f2f1;
+}
+.category-value input {
+  max-height: 35px;
 }
 .actions {
   box-sizing: border-box;

@@ -11,15 +11,33 @@ block content
 						.data-common-item
 							h3.flow-text Credit:
 							span.curr-credit.flow-text 150 euro
+							.add-money-val
+								input(type="text")
 							a.btn.add-money(href="#") Add
 					h2.flow-text Categories
 					.data-categories-row
-						.data-categories
-							select.flow-text.category-select
-								option(selected) Choose category
-								option(value="1") option 1
-								option(value="2") option 2
-								option(value="3") option 3
-								option(value="4") option 4
-							input.category-value(type="number")
-				aside.actions
+							form.data-categories(action="" method="get")
+								.data-categories-item
+									select.flow-text.category-select
+										option(selected) Choose category
+										option(value="1") option 1
+										option(value="2") option 2
+										option(value="3") option 3
+										option(value="4") option 4
+								.data-categories-item.category-value
+									input(type="number")
+								.data-categories-item.data-categories-submit
+									input.btn(type="submit" value="Add")
+				aside.actions.flow-text
+					.actions-hello
+						p Hello, Name
+						a(href="#") Logout
+					.actions-list
+						h3.actions-list-title Actions
+						ul
+							li
+								a(href="#") Action 1
+							li
+								a(href="#") Action 2
+							li
+								a(href="#") Action 3
