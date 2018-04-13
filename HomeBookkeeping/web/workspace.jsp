@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="entity.Category"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en"></html>
@@ -39,10 +41,9 @@
               <div class="data-categories-item">
                 <select class="flow-text category-select">
                   <option selected="selected">Choose category</option>
-                  <option value="1">option 1</option>
-                  <option value="2">option 2</option>
-                  <option value="3">option 3</option>
-                  <option value="4">option 4</option>
+                  <c:forEach var="category" items="${categories}">
+                      <option value="${category.id}">${category.name}</option>
+                  </c:forEach>
                 </select>
               </div>
               <div class="data-categories-item category-value">
@@ -54,7 +55,19 @@
             </form>
           </div>
         </section>
-        <aside class="actions"></aside>
+        <aside class="actions flow-text">
+          <div class="actions-hello">
+              <p>Hello, ${sessionScope.user.name}</p><a href="#">Logout</a>
+          </div>
+          <div class="actions-list">
+            <h3 class="actions-list-title">Actions</h3>
+            <ul>
+              <li><a href="#">Action 1</a></li>
+              <li><a href="#">Action 2</a></li>
+              <li><a href="#">Action 3</a></li>
+            </ul>
+          </div>
+        </aside>
       </div>
     </div>
   </div>

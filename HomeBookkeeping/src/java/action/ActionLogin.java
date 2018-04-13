@@ -57,9 +57,10 @@ public class ActionLogin implements ActionInterface{
         
         //creating session
         request.getSession(true).setAttribute("user", user);
-        
+
         //retutn result string
-        return "/workspace.jsp";
+        ActionWorkspace actionWorkspace = new ActionWorkspace();
+        return actionWorkspace.execute(request);
     }
     
     private List checkUserData(String login, String password) {

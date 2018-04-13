@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -25,6 +26,7 @@ public class Category implements Serializable {
     private Long id;
     @Column(unique = true)
     private String name;
+    @OneToOne
     private User user;
 
     public Category(String name) {
@@ -32,6 +34,14 @@ public class Category implements Serializable {
     }
 
     public Category() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -72,7 +82,6 @@ public class Category implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.Category[ id=" + id + " ]";
+        return "Category{" + "id=" + id + ", name=" + name + ", user=" + user.getName() + '}';
     }
-    
 }
