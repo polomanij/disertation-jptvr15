@@ -5,6 +5,8 @@
  */
 package controller;
 
+import ajaxAction.AjaxActionInterface;
+import factory.AjaxActionFactory;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -32,8 +34,12 @@ public class AjaxController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String sum = request.getParameter("sum");
-        PrintWriter writer = response.getWriter();
+        //get command string
+        String actionName = request.getParameter("action");
+        //get action class
+        AjaxActionInterface action = AjaxActionFactory.getAction(actionName);
+        //execute action
+        action.execute(request);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

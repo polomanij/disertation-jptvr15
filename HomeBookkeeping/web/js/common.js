@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $(".sidenav").sidenav();
     
-    //ajax income-adding-select
+    //ajax
     $(".income-send").click(function() {
         var category = $(".income-adding-select").val();
         var sum = $(".income-sum").val();

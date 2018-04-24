@@ -3,6 +3,7 @@ package action;
 import entity.Category;
 import entity.Report;
 import entity.User;
+import helper.ReportHelper;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,7 +33,7 @@ public class ActionWorkspace implements ActionInterface {
     public String execute(HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("user");
         
-        Long credit = this.calculateCredit(user);
+        Long credit = ReportHelper.calculateCredit(user);
         request.setAttribute("credit", credit);
         
         List<Category> incomesCategories = categoryFacade.findByUserWithType(user, "income");
@@ -41,39 +42,5 @@ public class ActionWorkspace implements ActionInterface {
         request.setAttribute("incomesCategories", incomesCategories);
         request.setAttribute("expensesCategories", expensesCategories);
         return "/workspace.jsp";
-    }
-    
-    private Long calculateCredit(User user) {
-        //get incomes
-        List<Report> incomes = reportFacade.findIncomesByUser(user);
-        
-        //get expenses
-        List<Report> expenses = reportFacade.findExpensesByUser(user);
-        
-        //calculate incomes
-        Long incomesSum = this.calculateReportSum(incomes);
-        
-        //calculate expenses
-        Long expensesSum = this.calculateReportSum(expenses);
-        
-        //calculate credit
-        Long credit;
-        if ( (incomesSum - expensesSum) < 100 ) {
-            credit = incomesSum - expensesSum;
-        } else {
-            credit = (incomesSum - expensesSum) / 100;
-        }
-        
-        //return value
-        return credit;
-    }
-    
-    private Long calculateReportSum(List<Report> reports) {
-        Long sum = 0l;
-        for (Report report : reports) {
-            sum += report.getSum();
-        }
-        
-        return sum;
     }
 }
