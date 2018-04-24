@@ -17,7 +17,9 @@ body.blue-grey.lighten-2
 		nav.teal
 			.wrapper
 				.nav-wrapper
-					a.brand-logo(href="#") Bookkeeping
+					a.left.brand-logo(href="#") Bookkeeping
+					a.right.sidenav-trigger(href='#', data-target='slide-out')
+						i.material-icons menu
 	block content
 	block scripts
 	script(src="libs/jquery.min.js")

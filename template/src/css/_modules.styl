@@ -5,16 +5,27 @@
 .sign-form
 	col()
 	size(4)
-	size-md(4)
+	size-md(6)
 	size-sm(10)
 	padding 10px
+	background #eceff1
+.sign-errors
+	color #d32f2f
+	p
+		margin-bottom 5px
+.signin .sign-form
+	md-block({
+		order: -1
+		margin-bottom: 10px
+	})
 .sign-form .input-field
 	margin-bottom 30px
 	&:last-of-type
 		margin-bottom 0
 .site-desc
 	col()
-	size(8) 
+	size(8)
+	size-md(10)
 	sm-block({
 		order: 1
 		margin-top: 20px
@@ -24,7 +35,8 @@
 	margin-left 7px
 	font-size 18px
 .content
-	margin-top 10px
+	margin-top 15px
+	padding-bottom 10px
 .content-row
 	row-flex()
 	justify-content center
@@ -34,65 +46,99 @@
 	size-sm(12)
 	color #004d40
 	h2
-		col()
-		size(12)
 		text-align center
-		font-size 35px
-	h3
-		font-size 28px
-.data-common
+		font-size 37px
+		margin 15px 0
+		&:first-of-type
+			margin-top 0
+.data-common-title
+	font-size 28px
+	font-weight bold
+.data-common-val
+	color #c8e6c9
+.data-adding
+	row-flex()
+	align-items flex-end
+.category-edit
+	.data-adding
+		justify-content: center
+.data-errors
+	color #ffcdd2
+.data-adding-item
+	col()
+	size(4)
+	size-sm(6)
+	sm-block({
+		margin-bottom: 10px
+	})
+.category-edit
+	.data-adding-item
+		size-sm(7)
+		sm-block({
+			text-align: center
+		})
+.data-adding-label
+	color inherit
+	font-size 25px
+.data-adding-input
+	background #eceff1
+	max-width 150px
+	border-radius 5px
+.category-select
+.category-type-select
+	display block
+	border-radius 5px
+	background #eceff1
+.category-change
+	.category-type-select
+		margin-bottom 15px
+.category-change
 	row-flex()
 	justify-content center
-.data-common-item
+.category-change-select
 	col()
 	size(12)
-	size-md(12)
-	margin 20px 0
-	text-align left
-	h3
-		margin-bottom 15px
-.curr-credit
-	font-weight bold
-.add-money-val
-	display inline-block
-	max-width 100px
-	border-radius 5px
-	background #e0f2f1
-	input
-		max-height 35px
-.add-money
-	margin-left 10px
-.data-categories
-	row-flex()
-	align-items center
-	margin-top 20px
 	text-align center
-.data-categories-item
-	col()
-.category-select
-	display inline-block
-	background #e0f2f1
+	margin-bottom 15px
+	select
+		display inline-block
+		max-width 300px
+.category-rename
+	//size(12)
+	row-flex()
+	justify-content center
+	align-items flex-end
+.data-adding-label
+	margin-right 10px
+.category-rename-input
+	margin-right 10px
 	border-radius 5px
-.category-value
-	display inline-block
-	max-width 100px
-	border-radius 5px
-	background-color #e0f2f1
-	input
-		max-height 35px
-
-
+	background #eceff1
+.category-delete
+	size(12)
+	text-align center
+	margin-top 10px
 .actions
 	col()
 	size(4)
 	md-block({
 		display: none
 	})
+	align-self flex-start
 	padding 10px
-	border-radius 10px
+	border-radius 7px
 	text-align center
-	background #e0f2f1
+	background #eceff1
+	a
+		color #2979ff
 .actions-list
 	margin-top 20px
 .actions-list-title
 	margin-bottom 15px
+.actions-mob
+	text-align center
+	a
+		color #2979ff
+	ul
+		a
+			color #2979ff

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package session;
 
 import entity.Category;
@@ -27,10 +22,11 @@ public class CategoryFacade extends AbstractFacade<Category> {
         super(Category.class);
     }
     
-    public List<Category> findByUserId(User user){
+    public List<Category> findByUserWithType(User user, String type){
         try {
-            return em.createQuery("SELECT c FROM Category c WHERE c.user=:user")
+            return em.createQuery("SELECT c FROM Category c WHERE c.user=:user AND c.type=:type")
                     .setParameter("user", user)
+                    .setParameter("type", "income")
                     .getResultList();
         } catch (Exception e) {
             return null;

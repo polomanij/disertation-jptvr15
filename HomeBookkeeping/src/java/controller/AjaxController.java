@@ -5,9 +5,8 @@
  */
 package controller;
 
-import action.ActionInterface;
-import factory.ActionFactory;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,10 +15,11 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author pupil
+ * @author roman
  */
-@WebServlet(name = "Controller", urlPatterns = {"/controller"})
-public class Controller extends HttpServlet {
+@WebServlet(name = "ajax-controller", urlPatterns = {"/ajaxController"})
+public class AjaxController extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -32,16 +32,8 @@ public class Controller extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        //Getting command string
-        String actionName = request.getParameter("action");
-        //Getting action class
-        ActionInterface action = ActionFactory.getAction(actionName);
-        //Executing action
-        //@var page - url string 
-        String page = action.execute(request);
-        
-        //redirect
-        request.getRequestDispatcher(page).forward(request, response);
+        String sum = request.getParameter("sum");
+        PrintWriter writer = response.getWriter();
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -82,4 +74,5 @@ public class Controller extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
 }

@@ -1,1 +1,1 @@
-$(document).ready(function(){$(".sidenav").length&&$(".sidenav").sidenav(),$("#category-select").formSelect()});
+$(document).ready(function(){$(".sidenav").sidenav()});

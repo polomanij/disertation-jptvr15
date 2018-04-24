@@ -1,5 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page import="entity.Category"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en"></html>
@@ -18,53 +17,91 @@
   <header class="header">
     <nav class="teal">
       <div class="wrapper">
-        <div class="nav-wrapper"><a href="#" class="brand-logo">Bookkeeping</a></div>
+        <div class="nav-wrapper"><a href="#" class="left brand-logo">Bookkeeping</a><a href="#" data-target="slide-out" class="right sidenav-trigger"><i class="material-icons">menu</i></a></div>
       </div>
     </nav>
   </header>
-  <div class="content">
+  <div class="content flow-text">
     <div class="wrapper">
       <div class="content-row">
         <section class="data">
-          <h2 class="flow-text">Your current data</h2>
+          <h2>Your current data</h2>
           <div class="data-common">
             <div class="data-common-item">
-              <h3 class="flow-text">Credit:</h3><span class="curr-credit flow-text">150 euro</span>
-              <div class="add-money-val">
-                <input type="text"/>
-              </div><a href="#" class="btn add-money">Add</a>
+              <p class="data-common-title">Credit: <span class="data-common-val">${credit} EUR</span></p>
+            </div>
+            <div class="data-common-item">
+              <p class="data-common-title">Last expense: <span class="data-common-val">Title of expense, 150 EUR</span></p>
+            </div>
+            <div class="data-common-item">
+              <p class="data-common-title">Last income: <span class="data-common-val">Title of income, 150 EUR</span></p>
             </div>
           </div>
-          <h2 class="flow-text">Categories</h2>
-          <div class="data-categories-row">
-            <form action="" method="get" class="data-categories">
-              <div class="data-categories-item">
-                <select class="flow-text category-select">
-                  <option selected="selected">Choose category</option>
-                  <c:forEach var="category" items="${categories}">
-                      <option value="${category.id}">${category.name}</option>
+          <h2>Add Income</h2>
+          <div class="data-errors"></div>
+          <div class="data-adding">
+            <div class="data-adding-item">
+                <select class="category-select income-adding-select">
+                  <c:forEach var="income" items="${incomesCategories}">
+                      <option>${income.name}</option>
                   </c:forEach>
-                </select>
+              </select>
+            </div>
+            <div class="data-adding-item">
+              <label for="income-sum" class="data-adding-label">Sum:</label>
+              <div class="data-adding-input">
+                <input id="income-sum" type="number" class="income-sum"/>
               </div>
-              <div class="data-categories-item category-value">
-                <input type="number"/>
+            </div>
+            <div class="data-adding-item">
+              <input type="submit" value="Add income" class="btn income-send"/>
+            </div>
+          </div>
+          <h2>Add expense</h2>
+          <div class="data-errors"></div>
+          <div class="data-adding">
+            <div class="data-adding-item">
+              <select class="category-select">
+                <option value="1">Products</option>
+                <option value="2">Car</option>
+              </select>
+            </div>
+            <div class="data-adding-item">
+              <label for="" class="data-adding-label">Sum:</label>
+              <div class="data-adding-input">
+                <input type="number" class="expense-sum"/>
               </div>
-              <div class="data-categories-item data-categories-submit">
-                <input type="submit" value="Add" class="btn"/>
-              </div>
-            </form>
+            </div>
+            <div class="data-adding-item">
+              <input type="submit" value="Add expense" class="btn expense-send"/>
+            </div>
           </div>
         </section>
-        <aside class="actions flow-text">
+        <aside class="actions">
           <div class="actions-hello">
-              <p>Hello, ${sessionScope.user.name}</p><a href="#">Logout</a>
+            <p>Hello, Name</p><a href="#">Logout</a>
           </div>
           <div class="actions-list">
             <h3 class="actions-list-title">Actions</h3>
             <ul>
-              <li><a href="#">Action 1</a></li>
-              <li><a href="#">Action 2</a></li>
-              <li><a href="#">Action 3</a></li>
+              <li><a href="workspace.jsp">Home</a></li>
+              <li><a href="category.jsp">Edit categories</a></li>
+              <li><a href="#">Watch incomes</a></li>
+              <li><a href="#">Watch expenses</a></li>
+            </ul>
+          </div>
+        </aside>
+        <aside id="slide-out" class="actions-mob sidenav">
+          <div class="actions-hello">
+            <p>Hello, Name</p><a href="#">Logout</a>
+          </div>
+          <div class="actions-list">
+            <h3 class="actions-list-title">Actions</h3>
+            <ul>
+              <li><a href="workspace.html">Home</a></li>
+              <li><a href="category.html">Edit categories</a></li>
+              <li><a href="#">Watch incomes</a></li>
+              <li><a href="#">Watch expenses</a></li>
             </ul>
           </div>
         </aside>

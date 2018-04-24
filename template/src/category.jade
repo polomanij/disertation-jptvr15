@@ -1,0 +1,69 @@
+extends includes/entered
+block title
+	title signin
+block content
+		.content.flow-text
+			.wrapper
+				.content-row
+					section.data.category-edit
+						h2 Create category
+						form.data-adding(method="post" name="category-create")
+							.data-adding-item
+								label.data-adding-label(for="") Title:
+								.data-adding-input
+									input(type="text")
+							.data-adding-item
+								select.category-type-select
+									option(value="") Income
+									option(value="") Expense
+							.data-adding-item
+								input.btn.send-category(type="submit" value="Create")
+						h2 Edit category
+						form.category-change(method="post" name="category-edit")
+							.category-type
+								select.category-type-select
+									option(value="") Income
+									option(value="") Expense
+							.category-change-select
+								select.category-select
+									option(value="") category 1
+									option(value="") category 2
+									option(value="") category 3
+							.category-rename
+								.category-rename-val
+									label.data-adding-label(for="") New title:
+									.category-rename-input
+										input(type="text")
+								button.btn.send-rename Rename
+							.category-delete
+								button.btn.send-delete.red.darken-3 Delete
+					aside.actions
+						.actions-hello
+							p Hello, Name
+							a(href="#") Logout
+						.actions-list
+							h3.actions-list-title Actions
+							ul
+								li
+									a(href="workspace.html") Home
+								li
+									a(href="category.html") Edit categories
+								li
+									a(href="#") Watch incomes
+								li
+									a(href="#") Watch expenses
+					aside.actions-mob#slide-out.sidenav
+						.actions-hello
+							p Hello, Name
+							a(href="#") Logout
+						.actions-list
+							h3.actions-list-title Actions
+							ul
+								li
+									a(href="workspace.html") Home
+								li
+									a(href="category.html") Edit categories
+								li
+									a(href="#") Watch incomes
+								li
+									a(href="#") Watch expenses

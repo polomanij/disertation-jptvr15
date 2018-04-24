@@ -2,33 +2,48 @@ extends includes/entered
 block title
 	title signin
 block content
-	.content
+	.content.flow-text
 		.wrapper
 			.content-row
 				section.data
-					h2.flow-text Your current data
+					h2 Your current data
 					.data-common
 						.data-common-item
-							h3.flow-text Credit:
-							span.curr-credit.flow-text 150 euro
-							.add-money-val
-								input(type="text")
-							a.btn.add-money(href="#") Add
-					h2.flow-text Categories
-					.data-categories-row
-							form.data-categories(action="" method="get")
-								.data-categories-item
-									select.flow-text.category-select
-										option(selected) Choose category
-										option(value="1") option 1
-										option(value="2") option 2
-										option(value="3") option 3
-										option(value="4") option 4
-								.data-categories-item.category-value
-									input(type="number")
-								.data-categories-item.data-categories-submit
-									input.btn(type="submit" value="Add")
-				aside.actions.flow-text
+							p.data-common-title Credit: 
+								span.data-common-val 150 EUR
+						.data-common-item
+							p.data-common-title Last expense: 
+								span.data-common-val Title of expense, 150 EUR
+						.data-common-item
+							p.data-common-title Last income: 
+								span.data-common-val Title of income, 150 EUR
+					h2 Add Income
+					.data-errors
+					.data-adding
+						.data-adding-item
+							select.category-select
+								option(value="1") Products
+								option(value="2") Car
+						.data-adding-item
+							label.data-adding-label(for="income-sum") Sum:
+							.data-adding-input
+								input#income-sum.income-sum(type="number")
+						.data-adding-item
+								input.btn.income-send(type="submit" value="Add income")
+					h2 Add expense
+					.data-errors
+					.data-adding
+						.data-adding-item
+							select.category-select
+								option(value="1") Products
+								option(value="2") Car
+						.data-adding-item
+							label.data-adding-label(for="") Sum:
+							.data-adding-input
+								input.expense-sum(type="number")
+						.data-adding-item
+								input.btn.expense-send(type="submit" value="Add expense")
+				aside.actions
 					.actions-hello
 						p Hello, Name
 						a(href="#") Logout
@@ -36,8 +51,25 @@ block content
 						h3.actions-list-title Actions
 						ul
 							li
-								a(href="#") Action 1
+								a(href="workspace.html") Home
 							li
-								a(href="#") Action 2
+								a(href="category.html") Edit categories
 							li
-								a(href="#") Action 3
+								a(href="#") Watch incomes
+							li
+								a(href="#") Watch expenses
+				aside.actions-mob#slide-out.sidenav
+					.actions-hello
+						p Hello, Name
+						a(href="#") Logout
+					.actions-list
+						h3.actions-list-title Actions
+						ul
+							li
+								a(href="workspace.html") Home
+							li
+								a(href="category.html") Edit categories
+							li
+								a(href="#") Watch incomes
+							li
+								a(href="#") Watch expenses

@@ -1,3 +1,10 @@
+<%-- 
+    Document   : category
+    Created on : 24.04.2018, 3:25:59
+    Author     : roman
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en"></html>
 <head>
@@ -22,57 +29,53 @@
   <div class="content flow-text">
     <div class="wrapper">
       <div class="content-row">
-        <section class="data">
-          <h2>Your current data</h2>
-          <div class="data-common">
-            <div class="data-common-item">
-              <p class="data-common-title">Credit: <span class="data-common-val">150 EUR</span></p>
-            </div>
-            <div class="data-common-item">
-              <p class="data-common-title">Last expense: <span class="data-common-val">Title of expense, 150 EUR</span></p>
-            </div>
-            <div class="data-common-item">
-              <p class="data-common-title">Last income: <span class="data-common-val">Title of income, 150 EUR</span></p>
-            </div>
-          </div>
-          <h2>Add Income</h2>
-          <div class="data-errors"></div>
-          <div class="data-adding">
+        <section class="data category-edit">
+          <h2>Create category</h2>
+          <form method="post" name="category-create" class="data-adding">
             <div class="data-adding-item">
-              <select class="category-select">
-                <option value="1">Products</option>
-                <option value="2">Car</option>
-              </select>
-            </div>
-            <div class="data-adding-item">
-              <label for="income-sum" class="data-adding-label">Sum:</label>
+              <label for="" class="data-adding-label">Title:</label>
               <div class="data-adding-input">
-                <input id="income-sum" type="number" class="income-sum"/>
+                <input type="text"/>
               </div>
             </div>
             <div class="data-adding-item">
-              <input type="submit" value="Add income" class="btn income-send"/>
-            </div>
-          </div>
-          <h2>Add expense</h2>
-          <div class="data-errors"></div>
-          <div class="data-adding">
-            <div class="data-adding-item">
-              <select class="category-select">
-                <option value="1">Products</option>
-                <option value="2">Car</option>
+              <select class="category-type-select">
+                <option value="">Income</option>
+                <option value="">Expense</option>
               </select>
             </div>
             <div class="data-adding-item">
-              <label for="" class="data-adding-label">Sum:</label>
-              <div class="data-adding-input">
-                <input type="number" class="expense-sum"/>
+              <input type="submit" value="Create" class="btn send-category"/>
+            </div>
+          </form>
+          <h2>Edit category</h2>
+          <form method="post" name="category-edit" class="category-change">
+            <div class="category-type">
+              <select class="category-type-select">
+                <option value="">Income</option>
+                <option value="">Expense</option>
+              </select>
+            </div>
+            <div class="category-change-select">
+              <select class="category-select">
+                <option value="">category 1</option>
+                <option value="">category 2</option>
+                <option value="">category 3</option>
+              </select>
+            </div>
+            <div class="category-rename">
+              <div class="category-rename-val">
+                <label for="" class="data-adding-label">New title:</label>
+                <div class="category-rename-input">
+                  <input type="text"/>
+                </div>
               </div>
+              <button class="btn send-rename">Rename</button>
             </div>
-            <div class="data-adding-item">
-              <input type="submit" value="Add expense" class="btn expense-send"/>
+            <div class="category-delete">
+              <button class="btn send-delete red darken-3">Delete</button>
             </div>
-          </div>
+          </form>
         </section>
         <aside class="actions">
           <div class="actions-hello">

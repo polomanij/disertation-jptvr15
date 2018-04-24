@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en"></html>
@@ -12,12 +13,17 @@
   <link rel="stylesheet" href="css/style.css"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
-<body class="blue-grey lighten-2">
-  <%@ include file="/WEB-INF/jspFiles/includes/header.jsp" %>
+<body>
+<%@ include file="/WEB-INF/jsp/includes/header.jsp"%>
   <section class="signup">
     <div class="wrapper">
       <div class="sign-form-row">
-          <form class="sign-form blue-grey lighten-5" action="controller?action=registration" method="post">
+          <form class="sign-form" method="post" action="controller?action=registration">
+            <div class="sign-errors">
+                <c:forEach var="error" items="${errors}">
+                    <p>${error}</p>
+                </c:forEach>
+            </div>
           <div class="input-field">
             <input id="login" type="text" placeholder="login" name="login" class="validate"/>
             <label for="login">Login</label>
@@ -45,6 +51,7 @@
       </div>
     </div>
   </section>
+  <script src="libs/jquery.min.js"></script>
   <script src="libs/materialize/js/materialize.min.js"></script>
   <script src="js/common.js"></script>
 </body>

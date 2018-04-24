@@ -40,9 +40,9 @@ public class ActionRegistration implements ActionInterface {
         String password = request.getParameter("password").trim();
         //check parameters
         List<String> errorMessage = this.checkUserData(name, surname, login, email, password);
+        request.setAttribute("errors", errorMessage);
         
         if (!errorMessage.isEmpty()) {
-            request.setAttribute("errors", errorMessage);
             return "/signup.jsp";
         }
 
