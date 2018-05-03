@@ -44,7 +44,7 @@
                 <button class="btn create-category">Create</button>
             </div>
           </div>
-          <h2>Edit category</h2>
+          <h2>Edit categories</h2>
           <div method="post" name="category-edit" class="category-change">
             <div class="category-type">
               <select class="category-type-select category-change-type">
@@ -69,6 +69,27 @@
               <button class="btn send-rename">Rename</button>
             </div>
             <div class="category-delete">
+              <button class="btn send-deactivate yellow darken-2">Deactivate</button>
+              <button class="btn send-delete red darken-3">Delete</button>
+            </div>
+          </div>
+          <h2>Inactive categories edit</h2>
+          <div class="category-change">
+            <div class="category-type">
+              <select class="category-type-select">
+                <option>Income</option>
+                <option>Expense</option>
+              </select>
+            </div>
+            <div class="category-change-select">
+              <select class="category-select">
+                <option>category 1</option>
+                <option>category 2</option>
+                <option>category 3</option>
+              </select>
+            </div>
+            <div class="category-delete">
+              <button class="btn send-delete yellow darken-3">Activate</button>
               <button class="btn send-delete red darken-3">Delete</button>
             </div>
           </div>

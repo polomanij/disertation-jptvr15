@@ -23,7 +23,6 @@ public class AjaxCreateCategory implements ActionInterface {
             Logger.getLogger(ActionRegistration.class.getName()).log(Level.SEVERE, "Не удалось найти бин.", e);
         }
     }
-        
     
     @Override
     public String execute(HttpServletRequest request) {
