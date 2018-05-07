@@ -1,8 +1,10 @@
 package action;
 
+import com.google.gson.Gson;
 import entity.Category;
 import entity.User;
 import helper.CategoryHelper;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.Context;
@@ -32,14 +34,22 @@ public class AjaxCreateCategory implements ActionInterface {
         String categoryType = request.getParameter("newCategoryType");
         String categoryChangeType = request.getParameter("categoryChangeType");
         
-        Category newCategory = new Category(categoryType, categoryTitle, user);
+        Category newCategory = new Category(categoryType, categoryTitle, user, true);
+        
+        List<Category> allCategoriesByType = categoryFacade.findByUserWithType(user, categoryType);
+        
+        for (Category category : allCategoriesByType) {
+            if (categoryTitle.toLowerCase().equals(category.getName().toLowerCase())) {
+                return new Gson().toJson("Category name is already exists.");
+            }
+        }
         
         categoryFacade.create(newCategory);
         
         if (categoryType.equals(categoryChangeType)) {
-            String categoryListHtml = CategoryHelper.generateCategoryListHtml(user, categoryType);
+            String categoryListHtml = CategoryHelper.generateCategoryListHtml(user, categoryType, true);
             
-            return categoryListHtml;
+            return new Gson().toJson(categoryListHtml);
         }
         
         return null;

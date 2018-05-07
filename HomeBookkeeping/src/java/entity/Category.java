@@ -16,18 +16,19 @@ public class Category implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String type;
-    //@Column(unique = true)
     private String name;
     @OneToOne
     private User user;
+    private boolean active;
 
     public Category() {
     }
 
-    public Category(String type, String name, User user) {
+    public Category(String type, String name, User user, boolean active) {
         this.type = type;
         this.name = name;
         this.user = user;
+        this.active = active;
     }
 
     public Long getId() {
@@ -56,6 +57,14 @@ public class Category implements Serializable {
 
     public User getUser() {
         return user;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     public void setUser(User user) {

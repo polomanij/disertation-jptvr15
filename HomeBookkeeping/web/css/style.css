@@ -214,10 +214,10 @@ a {
 .data h2 {
   text-align: center;
   font-size: 37px;
-  margin: 15px 0;
+  margin: 35px 0;
 }
 .data h2:first-of-type {
-  margin-top: 0;
+  margin: 0;
 }
 .data-common-title {
   font-size: 28px;
@@ -251,7 +251,7 @@ a {
 }
 @media screen and (max-width: 720px) {
   .data-adding-item {
-    width: calc(50% - 30px);
+    width: calc(100% - 30px);
   }
 }
 @media screen and (max-width: 720px) {
@@ -262,11 +262,6 @@ a {
 @media screen and (max-width: 720px) {
   .category-edit .data-adding-item {
     width: calc(58.333333333333336% - 30px);
-  }
-}
-@media screen and (max-width: 720px) {
-  .category-edit .data-adding-item {
-    text-align: center;
   }
 }
 .data-adding-label {
@@ -320,11 +315,6 @@ a {
   -webkit-box-align: end;
   align-items: flex-end;
 }
-
-.category-rename-val {
-    text-align: center;
-}
-
 .data-adding-label {
   margin-right: 10px;
 }

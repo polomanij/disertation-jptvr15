@@ -36,8 +36,8 @@ public class ActionWorkspace implements ActionInterface {
         
         Double credit = ReportHelper.calculateCredit(user);
         
-        List<Category> incomesCategories = categoryFacade.findByUserWithType(user, "income");
-        List<Category> expensesCategories = categoryFacade.findByUserWithType(user, "expense");
+        List<Category> incomesCategories = categoryFacade.findByUserWithType(user, "income", true);
+        List<Category> expensesCategories = categoryFacade.findByUserWithType(user, "expense", true);
 
         String lastIncomeText = ReportHelper.getLastReportText("income", user);
         String lastExpenseText = ReportHelper.getLastReportText("expense", user);
@@ -49,6 +49,7 @@ public class ActionWorkspace implements ActionInterface {
         request.setAttribute("lastExpense", lastExpenseText);
         request.setAttribute("incomesCategories", incomesCategories);
         request.setAttribute("expensesCategories", expensesCategories);
+        
         return "/workspace.jsp";
     }
 }

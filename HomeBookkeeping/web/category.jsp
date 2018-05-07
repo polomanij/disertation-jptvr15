@@ -76,21 +76,21 @@
           <h2>Inactive categories edit</h2>
           <div class="category-change">
             <div class="category-type">
-              <select class="category-type-select">
+              <select class="category-type-select category-deactivate-type">
                 <option>Income</option>
                 <option>Expense</option>
               </select>
             </div>
             <div class="category-change-select">
-              <select class="category-select">
-                <option>category 1</option>
-                <option>category 2</option>
-                <option>category 3</option>
+              <select class="category-select inactive-categories">
+                  <c:forEach var="income" items="${inactiveCategories}">
+                      <option>${income.name}</option>
+                  </c:forEach>
               </select>
             </div>
             <div class="category-delete">
-              <button class="btn send-delete yellow darken-3">Activate</button>
-              <button class="btn send-delete red darken-3">Delete</button>
+              <button class="btn send-activate yellow darken-3">Activate</button>
+              <button class="btn send-inactivate-delete red darken-3">Delete</button>
             </div>
           </div>
         </section>

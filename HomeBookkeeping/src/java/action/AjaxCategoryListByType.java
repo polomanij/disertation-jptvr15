@@ -27,8 +27,9 @@ public class AjaxCategoryListByType implements ActionInterface {
     public String execute(HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("user");
         String categoryType = request.getParameter("categoryType");
+        boolean active = Boolean.valueOf( request.getParameter("active") );
         
-        String categoriesHtml = CategoryHelper.generateCategoryListHtml(user, categoryType);
+        String categoriesHtml = CategoryHelper.generateCategoryListHtml(user, categoryType, active);
         
         return categoriesHtml;
     }

@@ -28,8 +28,9 @@ public class AjaxCategoryRename implements ActionInterface {
         
         String curName = request.getParameter("curTitle");
         String newname = request.getParameter("newTitle");
+        String type = request.getParameter("type");
         
-        categoryFacade.rename(curName, newname, user);
+        categoryFacade.rename(curName, newname, type, user);
         
         return null;
     }

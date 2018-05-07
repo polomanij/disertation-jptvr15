@@ -75,7 +75,7 @@ public class AjaxAddReport implements ActionInterface {
         Long sumCents = this.getSumCents(sumNote);
 
         //get category object by categoryName and user
-        Category reportCategory = this.categoryFacade.find(categoryName, user);
+        Category reportCategory = this.categoryFacade.find(categoryName, type, user);
 
         //Create new report and return it
         Report newReport = new Report(type, reportCategory, sumCents);

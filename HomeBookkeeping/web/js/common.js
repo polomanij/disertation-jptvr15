@@ -72,7 +72,10 @@ $(document).ready(function() {
             type: "get",
             success: function (data) {
                 data = JSON.parse(data);
-                if (data !== null) {
+                if (data === 'Category name is already exists.') {
+                    M.toast({html: data});
+                    return;
+                } else if (data !== null) {
                     $(".changing-category").html(data);
                 }
                 
@@ -88,7 +91,8 @@ $(document).ready(function() {
             url: "ajaxController",
             data: {
                 action: "CATEGORY_LIST_BY_TYPE",
-                categoryType: categoryType
+                categoryType: categoryType,
+                active: "true"
             },
             success: function (data) {
                 $(".changing-category").html(data);
@@ -99,13 +103,15 @@ $(document).ready(function() {
     $(".send-rename").click(function() {
         var curTitle = $(".changing-category").val();
         var newTitle = $(".category-rename-input input").val();
+        var type = $(".category-change-type").val();
         
         $.ajax({
             url: "ajaxController",
             data: {
                 action: "CATEGORY_RENAME",
                 curTitle: curTitle,
-                newTitle: newTitle
+                newTitle: newTitle,
+                type: type
             },
             success: function (data) {
                 $(".changing-category option:contains(" + curTitle + ")").text(newTitle);
@@ -113,4 +119,72 @@ $(document).ready(function() {
             }
         });
     });
+    
+    $(".send-deactivate").click(function() {
+        var changedCategoryType = $(".category-change-type").val();
+        var secondCategoryType = $(".category-deactivate-type").val();
+        var categoryName = $(".changing-category").val();
+        var changedCategoryActive = "true";
+        
+        if ( isEmpty(categoryName) ) {
+            return false;
+        }
+        
+        $.ajax({
+            url: "ajaxController",
+            data: {
+                action: "CATEGORY_CHANGE_ACTIVATE",
+                changedCategoryType: changedCategoryType,
+                secondCategoryType: secondCategoryType,
+                categoryName: categoryName,
+                changedCategoryActive: changedCategoryActive
+            },
+            success: function (data) {
+                data = JSON.parse(data);
+                $(".changing-category").html(data.changedCategories);
+                
+                if (data.inactiveCategories !== null) {
+                    $(".inactive-categories").html(data.secondCategories);
+                }
+                
+                M.toast({html: 'Category was deactivated.'});
+            }
+        });
+    });
+    
+    $(".send-activate").click(function() {
+        var changedCategoryType = $(".category-deactivate-type").val();
+        var secondCategoryType = $(".category-change-type").val();
+        var categoryName = $(".inactive-categories").val();
+        var changedCategoryActive = "false";
+        
+        if ( isEmpty(categoryName) ) {
+            return false;
+        }
+        
+        $.ajax({
+            url: "ajaxController",
+            data: {
+                action: "CATEGORY_CHANGE_ACTIVATE",
+                categoryName: categoryName,
+                secondCategoryType: secondCategoryType,
+                changedCategoryType: changedCategoryType,
+                changedCategoryActive: changedCategoryActive
+            },
+            success: function (data) {
+                data = JSON.parse(data);
+                $(".inactive-categories").html(data.changedCategories);
+                
+                if (data.activeCategories !== null) {
+                    $(".changing-category").html(data.secondCategories);
+                }
+                
+                M.toast({html: 'Category was activated.'});
+            }
+        });
+    });
 });
+
+function isEmpty(str) {
+    return !str || !str.length;
+}

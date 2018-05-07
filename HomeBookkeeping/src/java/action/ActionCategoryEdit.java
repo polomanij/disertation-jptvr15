@@ -28,9 +28,11 @@ public class ActionCategoryEdit implements ActionInterface {
     public String execute(HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("user");
         
-        List<Category> incomesCategories = categoryFacade.findByUserWithType(user, "income");
+        List<Category> incomesCategories = categoryFacade.findByUserWithType(user, "income", true);
+        List<Category> inactiveCategories = categoryFacade.findByUserWithType(user, "income", false);
         
         request.setAttribute("incomesCategories", incomesCategories);
+        request.setAttribute("inactiveCategories", inactiveCategories);
         
         return "/category.jsp";
     }

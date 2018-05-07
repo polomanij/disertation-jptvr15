@@ -24,8 +24,8 @@ public class CategoryHelper {
         }
     }
     
-    public static String generateCategoryListHtml(User user, String type) {
-            List<Category> userCategories = categoryFacade.findByUserWithType(user, type);
+    public static String generateCategoryListHtml(User user, String type, boolean active) {
+            List<Category> userCategories = categoryFacade.findByUserWithType(user, type, active);
 
             String categoryListHtml = "";
             
