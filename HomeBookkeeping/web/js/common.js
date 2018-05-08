@@ -183,8 +183,24 @@ $(document).ready(function() {
             }
         });
     });
+    
+    $(".send-inactivate-delete, send-delete").click(function() {
+        
+    });
 });
 
 function isEmpty(str) {
     return !str || !str.length;
+}
+
+function sendDelete(categoryNameClass) {
+    var categoryName = $(categoryNameClass).val();
+    
+    if ( isEmpty(categoryName) ) {
+        return false;
+    }
+    
+    $.ajax({
+        url: "ajaxController",
+    });
 }
