@@ -100,6 +100,22 @@ $(document).ready(function() {
         });
     });
     
+    $(".category-deactivate-type").change(function() {
+        var categoryType = $(".category-deactivate-type").val();
+        
+        $.ajax({
+            url: "ajaxController",
+            data: {
+                action: "CATEGORY_LIST_BY_TYPE",
+                categoryType: categoryType,
+                active: "false"
+            },
+            success: function (data) {
+                $(".inactive-categories").html(data);
+            }
+        });
+    });
+    
     $(".send-rename").click(function() {
         var curTitle = $(".changing-category").val();
         var newTitle = $(".category-rename-input input").val();
@@ -183,24 +199,30 @@ $(document).ready(function() {
             }
         });
     });
-    
-    $(".send-inactivate-delete, send-delete").click(function() {
-        
-    });
 });
 
 function isEmpty(str) {
     return !str || !str.length;
 }
 
-function sendDelete(categoryNameClass) {
+/*function sendDelete(categoryNameClass, categoryTypeClass) {
     var categoryName = $(categoryNameClass).val();
+    var categoryType = $(categoryTypeClass).val();
     
     if ( isEmpty(categoryName) ) {
         return false;
     }
     
-    $.ajax({
-        url: "ajaxController",
-    });
-}
+    var sure = alert("Are you sure ?");
+    
+    if (sure) {
+        $.ajax({
+            url: "ajaxController",
+            data: {
+                action: "DELETE_CATEGORY",
+                categoryName: categoryName,
+                categoryType: categoryType,
+            }
+        });
+    }
+}*/
