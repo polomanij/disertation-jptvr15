@@ -27,14 +27,14 @@ public class ActionDeleteCategory implements ActionInterface {
     public String execute(HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("user");
         
-        String categoryName = request.getParameter("categoryName");
-        String categoryType = request.getParameter("categoryType");
+        String categoryName = request.getParameter("category-name");
+        String categoryType = request.getParameter("category-type");
         
         Category category = categoryFacade.find(categoryName, categoryType, user);
         
         categoryFacade.remove(category);
         
-        return null;
+        return new ActionCategoryEdit().execute(request);
     }
     
 }

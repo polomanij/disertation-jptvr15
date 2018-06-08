@@ -45,15 +45,15 @@
             </div>
           </div>
           <h2>Edit categories</h2>
-          <div method="post" name="category-edit" class="category-change">
+          <form method="post" action="controller?action=delete" name="category-edit" class="category-change">
             <div class="category-type">
-              <select class="category-type-select category-change-type">
+              <select class="category-type-select category-change-type" name="category-type">
                 <option>Income</option>
                 <option>Expense</option>
               </select>
             </div>
             <div class="category-change-select">
-              <select class="category-select changing-category">
+                <select class="category-select changing-category" name="category-name">
                   <c:forEach var="income" items="${incomesCategories}">
                       <option>${income.name}</option>
                   </c:forEach>
@@ -69,10 +69,10 @@
               <button class="btn send-rename">Rename</button>
             </div>
             <div class="category-delete">
-              <button class="btn send-deactivate yellow darken-2">Deactivate</button>
-              <button class="btn send-delete red darken-3">Delete</button>
+              <button type="button" class="btn send-deactivate yellow darken-2">Deactivate</button>
+              <input type="submit" class="btn send-delete red darken-3" value="Delete">
             </div>
-          </div>
+          </form>
           <h2>Inactive categories edit</h2>
           <div class="category-change">
             <div class="category-type">
